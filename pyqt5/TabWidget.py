@@ -1,5 +1,8 @@
 import sys
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QIntValidator
 from PyQt5.QtWidgets import *
+
 
 
 class MyApp(QDialog):
@@ -41,6 +44,11 @@ class FirstTab(QWidget):
 
 		name = QLabel('length:')
 		self.LE = QLineEdit()
+		self.LE.setPlaceholderText('0')
+		self.LE.setAlignment(Qt.AlignRight)
+		self.onlyInt = QIntValidator()
+		self.LE.setValidator(self.onlyInt)
+
 		cb = QComboBox(self)
 		cb.addItem('mm')
 		cb.addItem('cm')
@@ -60,6 +68,8 @@ class FirstTab(QWidget):
 
 	def onActivated(self, text):
 		aa = self.LE.text()
+		if len(aa) == 0:
+			return
 		num=self.lengthatoi(text)
 		self.LE.setText(str(float(aa)/(num/self.Cnum)))
 		self.Cnum = num
@@ -87,6 +97,11 @@ class SecondTab(QWidget):
 
 		name = QLabel('weight:')
 		self.LE = QLineEdit()
+		self.LE.setPlaceholderText('0')
+		self.LE.setAlignment(Qt.AlignRight)
+		self.onlyInt = QIntValidator()
+		self.LE.setValidator(self.onlyInt)
+
 		cb = QComboBox(self)
 		cb.addItem('mg')
 		cb.addItem('g')
