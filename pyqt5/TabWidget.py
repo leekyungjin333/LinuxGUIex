@@ -50,13 +50,13 @@ class FirstTab(QWidget):
 		self.Cnum=self.lengthatoi(self.Ctext)
 		cb.activated[str].connect(self.onActivated)
 
-		vbox = QVBoxLayout()
-		vbox.addWidget(name)
-		vbox.addWidget(self.LE)
-		vbox.addWidget(cb)
-		vbox.addStretch()
+		hbox = QHBoxLayout()
+		hbox.addWidget(name)
+		hbox.addWidget(self.LE)
+		hbox.addWidget(cb)
+		hbox.addStretch()
 
-		self.setLayout(vbox)
+		self.setLayout(hbox)
 
 	def onActivated(self, text):
 		aa = self.LE.text()
@@ -96,13 +96,13 @@ class SecondTab(QWidget):
 		self.Cnum=self.lengthatoi(self.Ctext)
 		cb.activated[str].connect(self.onActivated)
 
-		vbox = QVBoxLayout()
-		vbox.addWidget(name)
-		vbox.addWidget(self.LE)
-		vbox.addWidget(cb)
-		vbox.addStretch()
+		hbox = QHBoxLayout()
+		hbox.addWidget(name)
+		hbox.addWidget(self.LE)
+		hbox.addWidget(cb)
+		hbox.addStretch()
 
-		self.setLayout(vbox)
+		self.setLayout(hbox)
 
 	def onActivated(self, text):
 		aa = self.LE.text()
@@ -115,11 +115,11 @@ class SecondTab(QWidget):
 		if arg == 'mg':
 			return 1
 		elif arg == 'g':
-			return 10
+			return 1000
 		elif arg == 'kg':
-			return 100
+			return 1000000
 		elif arg == 't':
-			return 1000;
+			return 1000000000;
 
 
 class ThirdTab(QWidget):
